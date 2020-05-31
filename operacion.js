@@ -30,7 +30,7 @@ function prestarBits(numero){
     for(var i=1; i <= 8 ; i++){
         //FORMULA 2 ELEVADO A I TIENE QUE SER MAYOR O IGUAL NUMERO
         resultado = 2 ** i;
-        if(resultado >= 4){
+        if(resultado >= numero){
             resultado = i;
             break;
         }
