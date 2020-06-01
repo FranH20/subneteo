@@ -1,7 +1,8 @@
 var ip, mask,
 subred, resultado,
 bitprestado, newmask,
-saltodered;
+saltodered, tblBody,
+hilera, celda, textoCelda;
 function mtdResolver(){
     ip = document.getElementById('txt_ip').value;
     mask = document.getElementById('txt_mask').value;
@@ -18,9 +19,34 @@ function mtdResolver(){
     console.log('SALTO DE RED  : ' + saltodered);
 
     resultado = 0;
-    for(var i=0; i < subred; i++){
-        console.log(resultado);
-        resultado = resultado + saltodered;
+    tblBody = document.getElementById("tabladinamica");
+    for(var i = 0; i < 4; i++){
+        hilera = document.createElement("tr");
+        for(var j=0; j <=4; j++){
+            celda = document.createElement("td");
+            switch(j){
+                case 0:
+                    textoCelda = document.createTextNode(i+1);  
+                    break
+                case 1:
+                    textoCelda = document.createTextNode(resultado);        
+                    break;
+                case 2:
+                    textoCelda = document.createTextNode(resultado+1);        
+                    break;
+                case 3:
+                    textoCelda = document.createTextNode((resultado+saltodered)-2);        
+                    break;
+                case 4:
+                    textoCelda = document.createTextNode((resultado+saltodered)-1);
+                    resultado = resultado + saltodered;
+                    break;
+            }
+
+            celda.appendChild(textoCelda);
+            hilera.appendChild(celda);
+        }
+        tblBody.appendChild(hilera);
     }
 
 }
@@ -53,3 +79,16 @@ function saltodeRed(numero){
     resultado = 256 - numero;
     return resultado;
 }
+
+function creartabla(){
+    for(var i = 0; i < 2; i++){
+        for(var j=0; j <2; j++){
+            var celda = document.createElement("td");
+            var textoCelda = document.createTextNode("Celda en la hilera " + i + ", columna " + j);
+            celda.appendChild(textoCelda);
+            hilera.appendChild(celda);
+        }
+        tblBody.appendChild(hilera);
+    }
+    
+} 

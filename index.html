@@ -6,6 +6,7 @@
     <title>Subneteo</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@515&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="https://cdn.sstatic.net/Sites/es/img/apple-touch-icon.png?v=7739871010e6">
     <script src="operacion.js"></script>
 </head>
 <body>
@@ -23,11 +24,23 @@
                <input type="number" id="txt_subred">
                <button id="btn_aceptar" onclick="mtdResolver()">Aceptar</button>
            </div>
-           <div class="dato">
+           <div class="dato" >
 
            </div>
        </div>
-       <div class="resultado"></div>
+       <div class="resultado">
+           <table id="tabladinamica">
+               <thead>
+                   <tr>
+                       <th>N°</th>
+                       <th>Subred</th>
+                       <th colspan="2">Rango de IP</th>
+                       <th>Broadcast</th>
+                   </tr>
+                <tbody>
+                </tbody>
+           </table>
+       </div>
    </div>
     
 </body>
